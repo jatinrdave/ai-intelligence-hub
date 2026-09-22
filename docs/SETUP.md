@@ -1,6 +1,6 @@
 # Setup
 
-## 1. Create the repository
+## 1. Create the Repository
 
 Create a GitHub repository such as:
 
@@ -8,26 +8,9 @@ Create a GitHub repository such as:
 
 Push this project to the `main` branch.
 
-## 2. Add secrets
+## 2. Enable Pages
 
-Go to:
-
-**Repository → Settings → Secrets and variables → Actions**
-
-Add:
-
-- `ANTHROPIC_API_KEY`
-- `TAVILY_API_KEY`
-
-Optional repository variable:
-
-- `ANTHROPIC_MODEL`
-
-If the model variable is omitted, the workflow uses the model configured in `scripts/generate.mjs`.
-
-## 3. Enable Pages
-
-Go to:
+Go to GitHub:
 
 **Settings → Pages**
 
@@ -37,34 +20,32 @@ Set the source to:
 
 The `pages.yml` workflow will publish the site.
 
-## 4. Test manually
+## 3. Test Manually
 
-Go to:
+Go to **Actions -> Deploy GitHub Pages -> Run workflow**.
 
-**Actions → AI Intelligence Hub → Run workflow**
+## 4. Generate Content With Codex
 
-Choose `daily`.
+Open this repository in Codex and use natural-language operations from `AGENTS.md`, such as:
 
-Then check the commit and Pages deployment.
+- "Generate today's AI Radar"
+- "Generate this week's AI Deep Dive"
+- "Generate this month's AI Landscape"
+- "Research latest MCP developments"
+- "Create a POC from this week's most interesting development"
 
-## 5. Timezone
+Codex should research current information, update Markdown files, update indexes, and commit changes when asked.
 
-The example schedules use UTC. For India Standard Time, add 5 hours 30 minutes when choosing the UTC cron time.
+## 5. No API Keys Required
 
-For example:
+This repository does not need Anthropic, Tavily, OpenAI, or other external LLM API keys. Research and content generation happen inside Codex when you invoke it.
 
-- 09:00 UTC = 14:30 IST
-- 09:30 UTC = 15:00 IST
-- 10:00 UTC = 15:30 IST
-
-Change the cron expressions in `.github/workflows/ai-intelligence.yml` to your preferred publishing times.
-
-## 6. Production hardening
+## 6. Production Hardening
 
 Before making the site public:
 
-- Review generated content.
-- Keep secrets exclusively in GitHub Secrets.
+- Review reports before sharing them widely.
 - Never publish customer/proprietary information.
-- Consider a human review gate if the content will represent you or your organization publicly.
+- Do not include credentials, private URLs, or confidential architecture.
+- Periodically check external links.
 - Pin or review third-party GitHub Actions periodically.

@@ -1,8 +1,25 @@
 ---
 layout: page
-title: Research
+title: AI Research
 ---
 
-# 📚 Research
+# AI Research
 
-Important papers and technical reports will be collected here.
+Evergreen notes on AI research papers, model capabilities, architectures, benchmarks, evaluation methods, and research-stage ideas.
+
+## Notes
+
+_No research notes yet._
+
+## Research Standard
+
+For each important paper or research direction, capture:
+
+- Publication date and venue or preprint status
+- Research question
+- Method
+- What is genuinely new
+- Evidence and limitations
+- Reproducibility signals
+- Practical engineering implications
+- Source links

@@ -1,9 +1,19 @@
 title: AI Intelligence Hub
-description: AI agents, generative AI, RAG, computer vision, research, tools and practical engineering
+description: AI agents, generative AI, RAG, computer vision, MCP, AI coding, research, tools and practical engineering
 theme: minima
 markdown: kramdown
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+header_pages:
+  - daily/index.md
+  - weekly/index.md
+  - monthly/index.md
+  - research/index.md
+  - tools/index.md
+  - pocs/index.md
+exclude:
+  - CNAME

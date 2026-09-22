@@ -1,67 +1,89 @@
 # AI Intelligence Hub
 
-An automated, research-driven AI knowledge hub for daily, weekly, and monthly AI engineering intelligence.
+A GitHub-based AI technology research and publishing hub for daily signals, weekly engineering synthesis, monthly landscape analysis, topic research, tools, and practical POCs.
 
-## What it does
+This repository is intentionally static. Codex performs research and authoring when you invoke it, GitHub stores the knowledge base, and GitHub Pages publishes the website.
 
-- **Daily AI Radar**: recent AI developments, tools, papers, GitHub projects, and one practical engineering problem.
-- **Weekly Deep Dive**: synthesizes the strongest daily signals into a deeper technical article with architecture and implementation guidance.
-- **Monthly AI Landscape**: identifies broader trends, emerging technologies, and practical recommendations.
-- Publishes Markdown content as a **GitHub Pages** website.
-- Uses GitHub Actions for scheduled generation and deployment.
-
-## Repository layout
+## Core Workflow
 
 ```text
-daily/          Daily reports
-weekly/         Weekly deep dives
-monthly/        Monthly landscape reports
-research/       Evergreen research notes
-tools/          AI tools and frameworks
-pocs/           Practical proof-of-concepts
-scripts/        Research/content generation scripts
-_site/          Generated Jekyll site output (not committed)
+Codex
+-> researches current AI developments
+-> reads existing repository context
+-> writes or updates Markdown
+-> updates indexes and navigation
+-> commits changes
+-> GitHub Pages publishes the static site
 ```
 
-## Quick start
+There are no Anthropic, Tavily, or external LLM API dependencies in this repository.
 
-1. Create a GitHub repository, for example `ai-intelligence-hub`.
-2. Copy this project into the repository.
-3. Add GitHub Actions secrets:
-   - `ANTHROPIC_API_KEY`
-   - `TAVILY_API_KEY`
-4. In GitHub: **Settings → Pages → Source → GitHub Actions**.
-5. Run **Actions → AI Intelligence Hub → Run workflow** once to test.
-6. The scheduled workflows then maintain the site automatically.
+## Content Areas
 
-### Local generation
+- [Daily AI Radar](daily/)
+- [Weekly AI Engineering Deep Dive](weekly/)
+- [Monthly AI Technology Landscape](monthly/)
+- [AI Research](research/)
+- [AI Tools](tools/)
+- [AI Agents / Agentic AI](agents/)
+- [RAG](rag/)
+- [Computer Vision / OCR](computer-vision/)
+- [MCP](mcp/)
+- [AI Coding](ai-coding/)
+- [Practical POCs](pocs/)
 
-```bash
-npm install
-ANTHROPIC_API_KEY=... TAVILY_API_KEY=... npm run daily
+## Repository Layout
+
+```text
+AGENTS.md              Codex operating manual
+README.md              Repository overview
+index.md               GitHub Pages homepage
+_config.yml            GitHub Pages / Jekyll config
+
+daily/                 Daily AI Radar reports
+weekly/                Weekly AI Engineering Deep Dives
+monthly/               Monthly AI Technology Landscapes
+
+research/              Evergreen AI research notes
+tools/                 AI tool evaluations and watchlists
+agents/                Agentic AI notes and patterns
+rag/                   RAG and knowledge-system notes
+computer-vision/       Computer vision, OCR, and document intelligence
+mcp/                   Model Context Protocol notes
+ai-coding/             AI coding agent notes
+pocs/                  Practical proof-of-concepts
+templates/             Report templates
+docs/                  Setup and maintenance docs
+
+.github/workflows/     GitHub Pages deployment
 ```
 
-On Windows PowerShell:
+## Using Codex
 
-```powershell
-$env:ANTHROPIC_API_KEY="..."
-$env:TAVILY_API_KEY="..."
-npm install
-npm run daily
-```
+Open this repository in Codex and ask for one of the operations defined in [AGENTS.md](AGENTS.md), for example:
 
-## Scheduling
+- "Generate today's AI Radar"
+- "Generate this week's AI Deep Dive"
+- "Generate this month's AI Landscape"
+- "Research the latest AI agents"
+- "Create a POC from this week's most interesting development"
+- "Update the AI Intelligence Hub homepage"
 
-The workflow is configured for:
+Codex should search current sources, avoid duplicate topics, write Markdown into the appropriate folder, update indexes, and keep the site publishable.
 
-- Daily: every day
-- Weekly: Monday
-- Monthly: first day of the month
+## GitHub Pages
 
-GitHub Actions uses UTC for the cron examples in this repository. Adjust the cron times to your preferred timezone if required.
+The only GitHub Action in this repository builds and deploys the static Jekyll site. To enable it:
 
-## Important
+1. Push the repository to GitHub.
+2. Go to **Settings -> Pages**.
+3. Set **Source** to **GitHub Actions**.
+4. Push to `main` or run **Deploy GitHub Pages** manually.
 
-This repository intentionally keeps credentials out of source control. Use GitHub Actions Secrets for API keys.
+## Publishing Standards
 
-The generated public site should contain only public information. Do not publish proprietary company information, customer data, credentials, or confidential architecture.
+- Prefer primary sources: official announcements, documentation, research papers, GitHub repositories, Hugging Face, and engineering blogs.
+- Include publication dates where relevant.
+- Do not invent URLs, benchmarks, release dates, or popularity metrics.
+- Clearly label speculation, experimental research, and community discussion.
+- Keep examples practical for .NET/C#, Python, Azure, Docker, APIs, SQL Server, Angular, RAG, and MCP.
