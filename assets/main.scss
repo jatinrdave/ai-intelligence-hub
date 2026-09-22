@@ -43,6 +43,114 @@ a:hover {
   padding-top: 34px;
 }
 
+.hub-hero {
+  background: linear-gradient(135deg, #f7f9fc 0%, #edf7f5 100%);
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+.hub-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.hub-kicker {
+  color: var(--hub-accent-strong);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.hub-lede {
+  color: var(--hub-text);
+  font-size: 1.18rem;
+  margin-bottom: 1rem;
+  max-width: 48rem;
+}
+
+.hub-note {
+  color: var(--hub-muted);
+  margin-bottom: 0;
+}
+
+.hub-card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin: 1rem 0 1.75rem;
+}
+
+.hub-card-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.hub-card {
+  border: 1px solid var(--hub-border);
+  border-radius: 8px;
+  color: var(--hub-text);
+  display: flex;
+  flex-direction: column;
+  min-height: 145px;
+  padding: 1rem;
+  text-decoration: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+
+.hub-card:visited {
+  color: var(--hub-text);
+}
+
+.hub-card:hover {
+  border-color: #9ac4bd;
+  box-shadow: 0 10px 24px rgba(15, 46, 56, 0.08);
+  color: var(--hub-text);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.hub-card strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.45rem;
+}
+
+.hub-card span:last-child {
+  color: var(--hub-muted);
+  font-size: 0.95rem;
+}
+
+.hub-card-label {
+  color: var(--hub-accent-strong);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.hub-card-compact {
+  min-height: 118px;
+}
+
+.hub-principles {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1rem;
+}
+
+.hub-principles span {
+  background: var(--hub-surface);
+  border-left: 4px solid var(--hub-accent);
+  border-radius: 6px;
+  color: var(--hub-text);
+  padding: 0.75rem 0.85rem;
+}
+
 h1,
 h2,
 h3 {
