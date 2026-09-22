@@ -1,0 +1,17 @@
+name: Link Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 2 * *"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Markdown links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: "**/*.md"
+          fail: false

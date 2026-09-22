@@ -1,0 +1,75 @@
+name: AI Intelligence Hub
+
+on:
+  workflow_dispatch:
+    inputs:
+      report_type:
+        description: "Report to generate"
+        required: true
+        default: daily
+        type: choice
+        options:
+          - daily
+          - weekly
+          - monthly
+
+  schedule:
+    # Daily: 09:00 UTC
+    - cron: "0 9 * * *"
+    # Weekly: Monday 09:30 UTC
+    - cron: "30 9 * * 1"
+    # Monthly: first day, 10:00 UTC
+    - cron: "0 10 1 * *"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Determine report type
+        id: type
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "type=${{ inputs.report_type }}" >> "$GITHUB_OUTPUT"
+          elif [[ "${{ github.event.schedule }}" == "30 9 * * 1" ]]; then
+            echo "type=weekly" >> "$GITHUB_OUTPUT"
+          elif [[ "${{ github.event.schedule }}" == "0 10 1 * *" ]]; then
+            echo "type=monthly" >> "$GITHUB_OUTPUT"
+          else
+            echo "type=daily" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate report
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
+        run: npm run ${{ steps.type.outputs.type }}
+
+      - name: Commit generated content
+        run: |
+          git config user.name "AI Intelligence Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add daily weekly monthly
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: publish ${{ steps.type.outputs.type }} AI intelligence"
+            git push
+          fi

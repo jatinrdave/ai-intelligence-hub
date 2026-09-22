@@ -1,0 +1,14 @@
+{
+  "name": "ai-intelligence-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Automated AI engineering intelligence hub",
+  "scripts": {
+    "daily": "node scripts/generate.mjs daily",
+    "weekly": "node scripts/generate.mjs weekly",
+    "monthly": "node scripts/generate.mjs monthly"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.60.0"
+  }
+}
