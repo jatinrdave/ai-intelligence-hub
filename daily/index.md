@@ -11,4 +11,4 @@ Fast, practical briefings on current AI technology developments. Each report sho
 
 <!-- DAILY_INDEX -->
 
-_No daily reports yet. Ask Codex: "Generate today's AI Radar"._
+- [AI Radar — 2026-11-27](2026-11-27.md)

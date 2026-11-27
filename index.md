@@ -16,7 +16,7 @@ title: AI Intelligence Hub
   <a class="hub-card" href="daily/">
     <span class="hub-card-label">Daily</span>
     <strong>AI Radar</strong>
-    <span>Fast briefings on current AI developments, practical tools, papers, and engineering ideas.</span>
+    <span>Latest: November 27, 2026. Briefings on current AI developments, practical tools, papers, and engineering ideas.</span>
   </a>
   <a class="hub-card" href="weekly/">
     <span class="hub-card-label">Weekly</span>
